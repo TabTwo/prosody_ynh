@@ -23,8 +23,16 @@ echo "
   ttl: 3600
   type: CNAME
   value: '${base_domain}.'
-- name: 'vjud${suffix}'
+- name: '_xmpp-client._tcp${suffix}'
   ttl: 3600
-  type: CNAME
-  value: '${base_domain}.'
+  type: SRV
+  value: '0 5 5222 ${base_domain}.'
+- name: '_xmpps-client._tcp${suffix}'
+  ttl: 3600
+  type: SRV
+  value: '0 5 5223 ${base_domain}.'
+- name: '_xmpp-server._tcp${suffix}'
+  ttl: 3600
+  type: SRV
+  value: '0 5 5269 ${base_domain}.'
 " > ${YNH_STDRETURN}
